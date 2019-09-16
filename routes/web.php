@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::resource('user', 'UserController');
+
+Route::resource('phone', 'PhoneController');

@@ -15,7 +15,7 @@
                 data-accordion="false">
 
                 <li class="nav-item mt-5" >
-                    <a href="{{route('user.create')}}" class="nav-link">
+                    <a href="{{route('user.index')}}" class="nav-link">
                         <i class="nav-icon fa  fa-user"></i>
                         <p>
                            Manage User
@@ -25,7 +25,7 @@
 
 
                 <li class="nav-item " >
-                    <a href="" class="nav-link">
+                    <a href="{{route('phone.create')}}" class="nav-link">
                         <i class="nav-icon fa  fa-phone"></i>
                         <p>
                            Manage Phone
