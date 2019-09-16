@@ -16,8 +16,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','create_at','updated_at'
+        'name', 'create_at', 'updated_at'
     ];
+
+
+    //hasOne Relationship
+    function phone()
+    {
+        return $this->hasOne(Phone::class);
+    }
 
 
 }

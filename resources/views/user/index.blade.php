@@ -29,6 +29,7 @@
                 <tr>
                     <th>SL</th>
                     <th>User Name</th>
+                    <th>User Phone</th>
                     <th>Action</th>
 
                 </tr>
@@ -43,11 +44,11 @@
 
                         <td>{{$user->name}}</td>
 
-{{--                        @if($user->department)--}}
-                        {{--                            <td>{{$user->name}}</td>--}}
-                        {{--                        @else--}}
-                        {{--                            <td>Not Available</td>--}}
-                        {{--                        @endif--}}
+                        @if($user->phone)
+                            <td>{{$user->phone->phone}}</td>
+                        @else
+                            <td>Not Available</td>
+                        @endif
 
 
 
@@ -60,7 +61,7 @@
                                        class="fa fa-edit btn btn-info"></a>
                                 </div>
 
-                                <div class="col-sm-4" style="margin-left: -100px">
+                                <div class="col-sm-4" style="margin-left: -40px">
                                     <form action="{{route('user.destroy',$user->id)}}"
                                           method="post">
                                         {{ csrf_field() }}
