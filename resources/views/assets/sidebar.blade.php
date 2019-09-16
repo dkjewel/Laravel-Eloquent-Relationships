@@ -24,11 +24,21 @@
                 </li>
 
 
-                <li class="nav-item " >
-                    <a href="{{route('phone.create')}}" class="nav-link">
+                <li class="nav-item mt-3" >
+                    <a href="{{route('phone.index')}}" class="nav-link">
                         <i class="nav-icon fa  fa-phone"></i>
                         <p>
                            Manage Phone
+                        </p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item mt-3" >
+                    <a href="{{route('post.index')}}" class="nav-link">
+                        <i class="nav-icon fa  fa-list"></i>
+                        <p>
+                           Manage Post
                         </p>
                     </a>
                 </li>
