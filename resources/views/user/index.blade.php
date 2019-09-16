@@ -29,6 +29,7 @@
                 <tr>
                     <th>SL</th>
                     <th>User Name</th>
+                    <th>User Post Count</th>
                     <th>User Phone</th>
                     <th>Action</th>
 
@@ -43,6 +44,13 @@
 
 
                         <td>{{$user->name}}</td>
+
+                        @if($user->posts)
+                            <td>{{$user->posts->count()}}</td>
+                        @else
+                            <td>Not Available</td>
+                        @endif
+
 
                         @if($user->phone)
                             <td>{{$user->phone->phone}}</td>
@@ -61,7 +69,7 @@
                                        class="fa fa-edit btn btn-info"></a>
                                 </div>
 
-                                <div class="col-sm-4" style="margin-left: -40px">
+                                <div class="col-sm-4" style="margin-left: -10px">
                                     <form action="{{route('user.destroy',$user->id)}}"
                                           method="post">
                                         {{ csrf_field() }}

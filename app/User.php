@@ -26,5 +26,11 @@ class User extends Authenticatable
         return $this->hasOne(Phone::class);
     }
 
+    //hasMany Relationship
+    function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
 
 }
