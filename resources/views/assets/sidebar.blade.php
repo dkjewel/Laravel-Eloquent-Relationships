@@ -43,6 +43,15 @@
                     </a>
                 </li>
 
+                <li class="nav-item mt-3" >
+                    <a href="{{route('role.index')}}" class="nav-link">
+                        <i class="nav-icon fa  fa-key"></i>
+                        <p>
+                           Manage Role
+                        </p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
 
