@@ -14,12 +14,11 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('/')}}dist/css/adminlte.min.css">
 
-    <!-- Style Files -->
-    <link rel="stylesheet" href="{{asset('/')}}css/styles.css">
-
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+    <!--Specific CSS -->
+@stack('css')
 
 </head>
 
@@ -51,9 +50,16 @@
 
 <!-- jQuery -->
 <script src="{{asset('/')}}plugins/jquery/jquery.min.js"></script>
+
 <!-- Bootstrap 4 -->
 <script src="{{asset('/')}}plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="{{asset('/')}}dist/js/adminlte.min.js"></script>
+
+<!--Specific CSS -->
+@stack('js')
+
+
 </body>
 </html>

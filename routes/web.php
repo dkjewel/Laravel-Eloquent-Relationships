@@ -20,5 +20,3 @@ Route::resource('user', 'UserController');
 Route::resource('phone', 'PhoneController');
 
 Route::resource('post', 'PostController');
-
-Route::resource('role', 'RoleController');
