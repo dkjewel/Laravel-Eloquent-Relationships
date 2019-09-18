@@ -10,8 +10,15 @@ class Post extends Model
         'user_id', 'title', 'body'
     ];
 
-    function user()
+    //belongsTo Relationship
+    public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

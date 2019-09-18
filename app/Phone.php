@@ -12,7 +12,7 @@ class Phone extends Model
 
     //belongsTo Relationship
 
-    function user()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

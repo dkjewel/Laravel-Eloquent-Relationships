@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Tag;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,9 @@ class PostController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('post.create',compact('users'));
+        $tags = Tag::all();
+
+        return view('post.create', compact('users', 'tags'));
     }
 
 
@@ -32,8 +35,19 @@ class PostController extends Controller
             'body' => 'required',
         ]);
 
+        $post = new Post();
 
-        Post::create($request->all());
+        $post->user_id = $request->user_id;
+        $post->title = $request->title;
+        $post->body = $request->body;
+
+        $post->save();
+
+        $post->tags()->attach($request->tags);
+
+
+//        Post::create($request->all());
+
 
         return redirect()->route('post.create')
             ->with(['message' => 'Post Info Saved Successfully']);
@@ -50,11 +64,12 @@ class PostController extends Controller
     {
 
         $users = User::all();
+        $tags = Tag::all();
 
-        $post = Post::with('user')->find($id);
+        $post = Post::with('user','tags')->find($id);
 
 
-        return view('post.edit',compact('post','users'));
+        return view('post.edit', compact('post', 'users','tags'));
     }
 
 
@@ -74,6 +89,8 @@ class PostController extends Controller
 
         $post->save();
 
+        $post->tags()->sync($request->tags);
+
 
         return redirect()->route('post.index')
             ->with(['message' => 'Post Info Updated Successfully']);
@@ -84,6 +101,8 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
+        $post->tags()->detach();
+        
         $post->delete();
 
         return redirect()->route('post.index')

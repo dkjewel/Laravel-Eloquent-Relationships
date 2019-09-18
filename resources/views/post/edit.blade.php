@@ -4,6 +4,10 @@
     Update Post
 @endsection
 
+@push('css')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet"/>
+@endpush
+
 @section('content')
 
     <div class="card card-info" style="height: auto; width: 1000px; margin-left: 50px;margin-top: 20px">
@@ -45,6 +49,34 @@
                     </div>
                 </div>
 
+
+                <div class="form-group ml-5 row">
+                    <label class="col-sm-2 control-label">Tag Name</label>
+                    <div class="col-sm-10">
+
+                        <select class="form-control select2-multi" name="tags[]" multiple>
+
+
+                            @foreach($tags as $tag)
+
+
+                                <option
+                                    @foreach($post->tags as $postTag)
+                                    {{$postTag->id == $tag->id ? 'selected':''}}
+                                    @endforeach
+
+                                    value="{{ $tag->id }}">
+
+                                    {{ $tag->name }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                        {{--                        <span class="text-danger"> {{$errors->has('tag_id') ? $errors->first('tag_id'):''}} </span>--}}
+
+                    </div>
+                </div>
+
                 <div class="form-group ml-5 row">
                     <label class="col-sm-2 control-label">Title</label>
                     <div class="col-sm-10">
@@ -57,7 +89,7 @@
                 <div class="form-group ml-5 row">
                     <label class="col-sm-2 control-label">Body</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" name="body" >{{$post->body}}</textarea>
+                        <textarea class="form-control" name="body">{{$post->body}}</textarea>
                         <span class="text-danger"> {{$errors->has('body') ? $errors->first('body'):''}} </span>
 
                     </div>
@@ -78,3 +110,13 @@
     </div>
 
 @endsection
+
+
+@push('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+
+
+    <script>
+        $('.select2-multi').select2();
+    </script>
+@endpush

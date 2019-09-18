@@ -21,13 +21,13 @@ class User extends Authenticatable
 
 
     //hasOne Relationship
-    function phone()
+    public function phone()
     {
         return $this->hasOne(Phone::class);
     }
 
     //hasMany Relationship
-    function posts()
+    public function posts()
     {
         return $this->hasMany(Post::class);
     }
