@@ -45,7 +45,7 @@
 
 
                 <li class="nav-item mt-3" >
-                    <a href="" class="nav-link">
+                    <a href="{{route('tag.index')}}" class="nav-link">
                         <i class="nav-icon fa  fa-key"></i>
                         <p>
                            Manage Tags
